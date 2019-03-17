@@ -7,6 +7,7 @@ import com.ninos.business.model.Person;
 import org.apache.kafka.common.serialization.Deserializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ import java.util.Map;
  * custom deserializer for the person class
  * should be used by a kafka consumer
  */
+@Component
 public class PersonDeserializer implements Deserializer<Person> {
   private static final Logger logger = LoggerFactory.getLogger(PersonDeserializer.class);
   private static final ObjectMapper objectMapper = new ObjectMapper();

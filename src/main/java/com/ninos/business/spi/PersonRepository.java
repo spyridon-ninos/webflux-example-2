@@ -20,13 +20,20 @@ public interface PersonRepository {
      */
     class RepositoryException extends Exception {
         private final String reason;
+        private final Throwable cause;
 
-        public RepositoryException(String reason) {
+        public RepositoryException(String reason, Throwable cause) {
             this.reason = reason;
+            this.cause = cause;
         }
 
         public String getReason() {
             return reason;
+        }
+
+        @Override
+        public Throwable getCause() {
+            return cause;
         }
     }
 }

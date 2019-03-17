@@ -45,7 +45,7 @@ public class PersonKafkaStore implements PersonRepository {
           .send(topic, person)
           .get(endpointConfiguration.endpoint().getTimeoutMs(), TimeUnit.MILLISECONDS);
     } catch (InterruptedException | ExecutionException | TimeoutException e) {
-      throw new RepositoryException("Got exception while waiting for the message to be sent");
+      throw new RepositoryException("Got exception while waiting for the message to be sent", e);
     }
   }
 }
