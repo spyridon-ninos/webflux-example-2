@@ -1,0 +1,21 @@
+kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+    group-id: singleGroupId
+    topics:
+      - first
+  producer:
+    producer-id: myProducerId
+    idempotent: false
+    acks: all
+    max-in-flight-requests: 1
+    retries: 3
+    request-timeout-ms: 100
+    max-block-ms: 1000
+    topic: first
+api:
+  version: v1
+endpoints-enabled:
+  persons: true
+endpoint-requests:
+  timeout-ms: 5000
